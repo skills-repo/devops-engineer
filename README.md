@@ -18,10 +18,10 @@
 
 | 环节 | 技能 | 描述 | 来源 |
 |------|------|------|------|
-| 🔄 CI/CD | `ci-cd-pipeline` | GitHub Actions/GitLab CI 流水线设计与优化 | 原创 |
-| 🐳 容器化 | `docker-deploy` | Docker 容器化部署与 compose 编排 | 原创 |
-| 🏗️ IaC | `infra-as-code` | Terraform/Pulumi 基础设施即代码 | 原创 |
-| 📊 监控 | `monitor-logging` | 日志聚合、监控告警与健康检查 | 原创 |
+| 🔄 CI/CD | `ci-cd-pipeline` | CI/CD 流水线自动化：质量门禁、测试集成、部署策略 | [衍生](https://skills.sh/addyosmani/agent-skills/ci-cd-and-automation) |
+| 🐳 容器化 | `docker-deploy` | Docker 容器化：Dockerfile、compose、镜像优化、安全加固 | [衍生](https://skills.sh/mukul975/anthropic-cybersecurity-skills/hardening-docker-containers-for-production) |
+| 🏗️ IaC | `infra-as-code` | Terraform 基础设施即代码：云资源、状态管理、模块化 | [衍生](https://skills.sh/aradotso/data-skills/terraform-iac-data-engineering) |
+| 📊 监控 | `monitor-logging` | Datadog 可观测性：日志、APM 追踪、监控告警 | [衍生](https://skills.sh/datadog-labs/agent-skills/agent-skills) |
 
 ## 快速开始
 

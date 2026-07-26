@@ -1,56 +1,56 @@
 ---
 name: docker-deploy
-description: Docker 容器化部署，自动生成 Dockerfile 和 compose，支持零停机部署
+description: Docker 容器化：Dockerfile 编写、compose 多服务、镜像优化、安全最佳实践
 source:
-  type: original
+  type: derived
   repo: skills-repo/devops-engineer
   path: skills/docker-deploy/SKILL.md
   version: 1.0.0
   updated: 2026-07-26
+  url: https://skills.sh/mukul975/anthropic-cybersecurity-skills/hardening-docker-containers-for-production
 metadata:
   category: 容器化
   platform: 通用
-  difficulty: 进阶
+  difficulty: 入门
 ---
 
 # Docker 容器化部署
 
-> 将应用容器化并编排部署，自动生成最佳实践的 Dockerfile 和 docker-compose 配置。
+> 容器化应用从开发到生产：Dockerfile 最佳实践、compose 多服务编排、镜像优化、安全加固。
 
 ## 能力
 
-- **Dockerfile 生成**：多阶段构建、最小镜像、安全扫描
-- **Compose 编排**：多服务编排与网络配置
-- **优化建议**：层缓存、镜像瘦身、启动速度优化
-- **部署策略**：滚动更新、蓝绿部署、健康检查
-- **环境管理**：开发/测试/生产环境分离
+- **Dockerfile 编写**：多阶段构建、层缓存优化、最小基础镜像、非 root 运行
+- **Compose 多服务**：服务定义、网络配置、卷管理、环境变量、健康检查
+- **镜像优化**：减小镜像体积、安全扫描、SBOM 生成
+- **安全加固**：只读文件系统、能力限制（cap-drop）、资源限制、seccomp/AppArmor
+- **零停机部署**：滚动更新、健康检查、回滚策略
 
 ## 使用方式
 
-在 Claude Code 中使用 `/docker-deploy` 调用。
-
 ```
-/docker-deploy 为这个 Go 项目生成 Dockerfile
-/docker-deploy 把这个应用和数据库编排成 docker-compose
+/docker-deploy 为这个 Node.js 应用写 Dockerfile
+/docker-deploy 用 compose 编排这个多服务应用
+/docker-deploy 审查这个 Dockerfile 的安全性
 ```
 
 ## 工作流
 
-1. 分析项目结构，识别运行时依赖
-2. 生成 Dockerfile（多阶段构建、非 root 用户）
-3. 生成 docker-compose.yml（应用 + 数据库 + 缓存）
-4. 添加健康检查和 restart 策略
-5. 输出构建和部署命令
+1. 分析应用结构和依赖
+2. 编写多阶段 Dockerfile（build → production）
+3. 配置 docker-compose.yml（服务/网络/卷/环境）
+4. 安全加固检查（用户/能力/文件系统/资源）
+5. 测试构建和运行
 
 ## 适用场景
 
-- 应用容器化首次尝试
-- 从单机部署迁移到 Docker
-- 本地开发环境标准化
-- VPS/云服务器上的生产部署
+- 应用容器化从零开始
+- 多服务本地开发环境
+- 生产环境镜像安全加固
+- CI/CD 中的容器构建优化
 
 ## 限制
 
 - 不涉及 Kubernetes 编排
-- 复杂微服务网络需配合服务网格
-- 镜像安全扫描结果需人工确认
+- 不涉及容器网络深度配置
+- 不涉及容器注册表管理

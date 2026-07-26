@@ -1,56 +1,56 @@
 ---
 name: ci-cd-pipeline
-description: GitHub Actions/GitLab CI 流水线设计优化，自动生成构建、测试、部署配置
+description: CI/CD 流水线自动化：质量门禁、测试集成、部署策略、GitHub Actions
 source:
-  type: original
+  type: derived
   repo: skills-repo/devops-engineer
   path: skills/ci-cd-pipeline/SKILL.md
   version: 1.0.0
   updated: 2026-07-26
+  url: https://skills.sh/addyosmani/agent-skills/ci-cd-and-automation
 metadata:
   category: CI/CD
   platform: 通用
-  difficulty: 进阶
+  difficulty: 入门
 ---
 
-# CI/CD 流水线
+# CI/CD 流水线与自动化
 
-> 为项目自动设计和优化 CI/CD 流水线，支持 GitHub Actions、GitLab CI 等主流平台。
+> 自动化质量门禁：任何变更未经 lint/typecheck/test/build 不进入生产。CI/CD 是所有其他技能的强制执行机制。
 
 ## 能力
 
-- **流水线生成**：分析项目结构，自动生成 CI 配置文件
-- **多平台支持**：GitHub Actions、GitLab CI、Jenkinsfile
-- **矩阵构建**：多 Node/Python/Go 版本并行测试
-- **缓存优化**：依赖缓存策略，减少构建时间
-- **部署集成**：自动连接 Docker 镜像构建和部署步骤
+- **质量门禁流水线**：Lint → Type Check → Unit Test → Build → Integration → E2E → Security → Bundle
+- **左移策略**：问题越早发现成本越低，静态分析优先于测试，测试优先于部署
+- **部署策略**：蓝绿部署、金丝雀发布、功能开关（feature flags > 长期分支）
+- **GitHub Actions**：workflow 配置、matrix build、cache 优化、环境变量管理
+- **更快更安全**：小批量 + 高频发布降低风险，3 个变更的部署比 30 个更容易排错
 
 ## 使用方式
 
-在 Claude Code 中使用 `/ci-cd-pipeline` 调用。
-
 ```
-/ci-cd-pipeline 为这个 Next.js 项目生成 GitHub Actions 配置
-/ci-cd-pipeline 优化现有 CI 的构建速度
+/ci-cd-pipeline 为这个 Node.js 项目配置 GitHub Actions
+/ci-cd-pipeline 设计一个包含 lint/test/build/deploy 的流水线
+/ci-cd-pipeline 这个 CI 失败了，帮我排错
 ```
 
 ## 工作流
 
-1. 分析项目类型和依赖（package.json/go.mod/requirements.txt）
-2. 确定 CI 平台（默认 GitHub Actions）
-3. 生成：checkout → 缓存 → 安装依赖 → lint → test → build
-4. 按需添加：矩阵测试、Docker 构建、自动部署
-5. 输出 yml 文件和配置说明
+1. 确定项目类型和技术栈
+2. 配置质量门禁顺序（lint → type → test → build）
+3. 设置触发条件（PR/merge/push/tag）
+4. 配置部署策略和环境
+5. 测试流水线，确保每个门禁实际执行
 
 ## 适用场景
 
-- 新项目初始化 CI/CD
-- 构建时间过长需要优化
-- 从 Travis/Jenkins 迁移到 GitHub Actions
-- 添加自动化测试和 lint 到现有流水线
+- 新项目 CI/CD 搭建
+- 现有流水线优化加速
+- 部署策略选择和实施
+- CI 失败排错
 
 ## 限制
 
-- 不处理私有 runner 配置
-- 复杂 Monorepo 需人工调整
-- Secret 管理需配合平台文档
+- 主要覆盖 GitHub Actions，其他 CI 平台类似
+- 不涉及 Kubernetes 部署策略（归属 infra-as-code）
+- 不涉及 monorepo 管理（lerna/nx/turborepo）

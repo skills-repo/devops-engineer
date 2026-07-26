@@ -1,57 +1,56 @@
 ---
 name: monitor-logging
-description: 日志聚合、监控告警与健康检查，覆盖 Prometheus/Grafana/ELK 栈
+description: Datadog 可观测性：日志搜索、APM 追踪、监控告警、LLM 可观测性
 source:
-  type: original
+  type: derived
   repo: skills-repo/devops-engineer
   path: skills/monitor-logging/SKILL.md
   version: 1.0.0
   updated: 2026-07-26
+  url: https://skills.sh/datadog-labs/agent-skills/agent-skills
 metadata:
-  category: 监控
-  platform: 通用
+  category: 可观测性
+  platform: Cloud
   difficulty: 进阶
 ---
 
-# 监控与日志
+# 可观测性：监控、日志与追踪
 
-> 为应用建立日志聚合、指标监控和告警体系，在用户发现之前就知道出了问题。
+> Datadog 驱动的可观测性实践：日志搜索、APM 追踪、监控告警、LLM 可观测性。
 
 ## 能力
 
-- **日志收集**：Docker 日志驱动、Filebeat、Fluentd 配置
-- **指标暴露**：Prometheus metrics endpoint、Node Exporter 配置
-- **仪表板**：Grafana dashboard JSON 模板生成
-- **告警规则**：Prometheus Alertmanager 规则编写
-- **健康检查**：HTTP/TCP/脚本探活配置和优雅关闭
+- **日志管理**：日志搜索、Pipeline 处理、归档策略、索引配置
+- **APM 追踪**：服务拓扑、请求追踪、性能分析、错误定位
+- **监控告警**：创建/管理/静默 Monitor、告警策略、SLO 监控
+- **LLM 可观测**：LLM 调用追踪、Token 用量、实验对比、评估
+- **浏览器 SDK**：RUM、Logs、Session Replay 前端监控
 
 ## 使用方式
 
-在 Claude Code 中使用 `/monitor-logging` 调用。
-
 ```
-/monitor-logging 为 Node.js 应用添加 Prometheus 监控
-/monitor-logging 配置 Grafana 面板监控 API 延迟
+/monitor-logging 搜索过去 1 小时的错误日志
+/monitor-logging 为这个 API 创建可用性监控
+/monitor-logging 分析这个 Trace 的慢请求原因
 ```
 
 ## 工作流
 
-1. 分析应用架构（Web/数据库/队列/缓存）
-2. 识别关键指标（延迟/错误率/吞吐/资源）
-3. 生成 Prometheus 指标暴露代码
-4. 生成 Grafana dashboard 配置
-5. 配置告警规则（临界值、通知渠道）
-6. 输出 docker-compose 一键启动监控栈
+1. 确认可观测性需求（日志/指标/追踪/前端）
+2. 安装对应 Agent/SDK
+3. 配置日志 Pipeline 和索引
+4. 创建关键指标监控和告警
+5. 用 APM 追踪排查性能问题
 
 ## 适用场景
 
-- 从无监控到有监控的第一步
-- 应用上线前接入监控体系
-- 事故后补充告警规则
-- 小团队搭建轻量级可观测性
+- 生产环境可观测性搭建
+- 故障排查和根因分析
+- 性能监控和告警配置
+- LLM 应用的可观测性
 
 ## 限制
 
-- 不处理 APM 级分布式追踪（需配合 OpenTelemetry）
-- 大规模日志存储需单独的集群规划
-- 告警阈值需根据实际运行数据调优
+- 依赖 Datadog 平台（需要 API Key）
+- 不涉及开源替代（Prometheus/Grafana/ELK）
+- 不涉及日志的 GDPR/PII 合规处理
