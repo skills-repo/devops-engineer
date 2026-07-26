@@ -1,6 +1,6 @@
 ---
 name: docker-deploy
-description: Docker 容器化部署，自动生成 Dockerfile 和 docker-compose，支持零停机部署
+description: Docker 容器化部署，自动生成 Dockerfile 和 compose，支持零停机部署
 source:
   type: original
   repo: skills-repo/devops-engineer

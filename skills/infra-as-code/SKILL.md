@@ -1,6 +1,6 @@
 ---
 name: infra-as-code
-description: 使用 Terraform/Pulumi 编写基础设施即代码，一键创建云资源和环境
+description: Terraform/Pulumi 基础设施即代码，一键创建云资源和环境
 source:
   type: original
   repo: skills-repo/devops-engineer

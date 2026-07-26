@@ -1,6 +1,6 @@
 ---
 name: ci-cd-pipeline
-description: GitHub Actions/GitLab CI 流水线设计与优化，自动生成构建、测试、部署配置
+description: GitHub Actions/GitLab CI 流水线设计优化，自动生成构建、测试、部署配置
 source:
   type: original
   repo: skills-repo/devops-engineer
