@@ -1,6 +1,12 @@
 ---
 name: monitor-logging
 description: 日志聚合、监控告警与健康检查，覆盖 Prometheus/Grafana/ELK 栈
+source:
+  type: original
+  repo: skills-repo/devops-engineer
+  path: skills/monitor-logging/SKILL.md
+  version: 1.0.0
+  updated: 2026-07-26
 metadata:
   category: 监控
   platform: 通用

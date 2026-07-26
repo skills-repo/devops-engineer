@@ -1,6 +1,12 @@
 ---
 name: ci-cd-pipeline
 description: GitHub Actions/GitLab CI 流水线设计与优化，自动生成构建、测试、部署配置
+source:
+  type: original
+  repo: skills-repo/devops-engineer
+  path: skills/ci-cd-pipeline/SKILL.md
+  version: 1.0.0
+  updated: 2026-07-26
 metadata:
   category: CI/CD
   platform: 通用

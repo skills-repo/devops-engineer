@@ -1,6 +1,12 @@
 ---
 name: docker-deploy
 description: Docker 容器化部署，自动生成 Dockerfile 和 docker-compose，支持零停机部署
+source:
+  type: original
+  repo: skills-repo/devops-engineer
+  path: skills/docker-deploy/SKILL.md
+  version: 1.0.0
+  updated: 2026-07-26
 metadata:
   category: 容器化
   platform: 通用
