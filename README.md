@@ -16,12 +16,12 @@
 
 ## 技能清单
 
-| 环节 | 技能 | 描述 |
-|------|------|------|
-| 🔄 CI/CD | `ci-cd-pipeline` | GitHub Actions/GitLab CI 流水线设计与优化 |
-| 🐳 容器化 | `docker-deploy` | Docker 容器化部署与 compose 编排 |
-| 🏗️ IaC | `infra-as-code` | Terraform/Pulumi 基础设施即代码 |
-| 📊 监控 | `monitor-logging` | 日志聚合、监控告警与健康检查 |
+| 环节 | 技能 | 描述 | 来源 |
+|------|------|------|------|
+| 🔄 CI/CD | `ci-cd-pipeline` | GitHub Actions/GitLab CI 流水线设计与优化 | 原创 |
+| 🐳 容器化 | `docker-deploy` | Docker 容器化部署与 compose 编排 | 原创 |
+| 🏗️ IaC | `infra-as-code` | Terraform/Pulumi 基础设施即代码 | 原创 |
+| 📊 监控 | `monitor-logging` | 日志聚合、监控告警与健康检查 | 原创 |
 
 ## 快速开始
 
