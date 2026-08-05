@@ -1,0 +1,48 @@
+# 生产级多阶段 Node 镜像模板
+# 设计要点：固定基础镜像、依赖层与源码层分离、运行阶段非 root、exec 形式 CMD、
+#          构建期密钥不落盘、HEALTHCHECK 自描述。
+# 自检：python3 scripts/dockerfile_lint.py assets/Dockerfile.node.multistage --strict
+
+# syntax=docker/dockerfile:1.7
+
+# ── 阶段 1：安装依赖（这一层只在依赖清单变化时失效）────────────────
+FROM node:22.14-alpine AS deps
+WORKDIR /app
+# 只拷依赖清单，源码改动不会击穿这一层缓存
+COPY package.json package-lock.json ./
+# 构建期私有源凭据用 BuildKit secret，不会写进任何镜像层
+RUN --mount=type=secret,id=npmrc,target=/root/.npmrc \
+    npm ci --prefer-offline --no-audit --no-fund
+
+# ── 阶段 2：编译（含 devDependencies，产物之后只挑必要的带走）────────
+FROM node:22.14-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN npm run build \
+    && npm prune --omit=dev
+
+# ── 阶段 3：运行（最小面，无编译器、无源码、无 devDeps）──────────────
+FROM node:22.14-alpine AS runtime
+# tini 作为 PID 1，负责转发信号与回收僵尸进程
+RUN apk add --no-cache tini \
+    && addgroup -g 10001 -S app \
+    && adduser -u 10001 -S app -G app
+WORKDIR /app
+ENV NODE_ENV=production \
+    PORT=3000
+
+COPY --from=builder --chown=app:app /app/node_modules ./node_modules
+COPY --from=builder --chown=app:app /app/dist ./dist
+COPY --from=builder --chown=app:app /app/package.json ./package.json
+
+USER app
+EXPOSE 3000
+
+# 供 docker / compose 使用；K8s 环境请改用 manifest 里的 readiness/liveness 探针
+HEALTHCHECK --interval=30s --timeout=3s --start-period=20s --retries=3 \
+    CMD node -e "fetch('http://127.0.0.1:'+process.env.PORT+'/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+
+# exec 形式：PID 1 是 tini→node，能正确收到 SIGTERM 走优雅退出
+ENTRYPOINT ["/sbin/tini", "--"]
+CMD ["node", "dist/server.js"]

@@ -1,0 +1,154 @@
+# 生产级 Kubernetes 工作负载模板（Deployment + Service + HPA + PDB）
+# 设计要点：不可变镜像 tag、资源配额、三探针分工、非 root、多副本 + PDB、
+#          优雅退出配合 preStop。
+# 自检：python3 scripts/k8s_manifest_check.py assets/k8s-deployment.yaml --strict
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: production
+  labels:
+    app.kubernetes.io/name: web
+    app.kubernetes.io/version: "1.0.0"
+spec:
+  replicas: 3
+  revisionHistoryLimit: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1          # 允许多起 1 个，滚动期间容量不下降
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: web
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: web
+    spec:
+      # 应用收到 SIGTERM 后需要排空在途请求；这个值要 > 最长请求耗时
+      terminationGracePeriodSeconds: 45
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        fsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      # 把副本打散到不同节点，单节点故障不会带走全部实例
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/name: web
+      containers:
+        - name: web
+          # 不可变 tag：用 git sha，绝不用 latest —— 否则回滚没有意义
+          image: ghcr.io/example/web:1a2b3c4d5e6f7890abcdef1234567890abcdef12
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: production
+            # 密钥永远走 secretKeyRef，不写明文
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: web-secrets
+                  key: database-url
+          envFrom:
+            - configMapRef:
+                name: web-config
+          resources:
+            requests:            # 按实测 P95 设定，调度器据此放置
+              cpu: 100m
+              memory: 256Mi
+            limits:              # 只设内存上限；CPU 上限易触发限流，慎设
+              memory: 512Mi
+          # 启动探针：慢启动应用的保护伞，通过前 liveness 不生效
+          startupProbe:
+            httpGet: {path: /healthz, port: http}
+            periodSeconds: 5
+            failureThreshold: 30      # 最多容忍 150s 启动
+          # 存活探针：只探自身，绝不级联检查下游，否则依赖抖动会引发批量重启
+          livenessProbe:
+            httpGet: {path: /healthz, port: http}
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          # 就绪探针：可以检查依赖，未就绪时摘流量但不重启
+          readinessProbe:
+            httpGet: {path: /readyz, port: http}
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 2
+          lifecycle:
+            preStop:
+              exec:
+                # 先让 endpoint 从 Service 摘除、连接排空，再让进程退出
+                command: ["sh", "-c", "sleep 5"]
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  namespace: production
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: web
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: web
+  namespace: production
+spec:
+  minAvailable: 2          # 节点排空/升级时至少保留 2 个可用副本
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: web
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: web
+  namespace: production
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: web
+  minReplicas: 3
+  maxReplicas: 20
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300   # 缩容慢一点，避免流量抖动来回震荡
+    scaleUp:
+      stabilizationWindowSeconds: 30    # 扩容快一点

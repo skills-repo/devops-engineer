@@ -1,0 +1,24 @@
+# 配合 Dockerfile.node.multistage 使用：把构建上下文压到最小
+.git
+.github
+.gitignore
+node_modules
+dist
+build
+coverage
+.next
+.turbo
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+Dockerfile*
+docker-compose*.yml
+README.md
+docs
+tests
+**/*.test.*
+**/*.spec.*
+.vscode
+.idea
