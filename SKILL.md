@@ -3,11 +3,12 @@ name: devops-engineer
 description: >-
   DevOps 与平台工程全链路技能库：设计 CI/CD 流水线与质量门禁、编写生产级 Dockerfile 与
   Kubernetes manifest、用 Terraform 管理基础设施、搭建可观测性体系与 SLO 告警、
-  选择部署策略并处置线上事故。内置 Dockerfile / GitHub Actions / K8s manifest 静态审查脚本
+  选择部署策略、把服务部署到 Linux 服务器、处置线上事故。内置 Dockerfile / GitHub Actions / K8s manifest 静态审查脚本
   与错误预算计算器，可直接对现有配置做体检并给出可执行的修复项。
   触发词："CI/CD、流水线、GitHub Actions、Dockerfile、容器化、镜像优化、Kubernetes、
   K8s、探针、Terraform、IaC、基础设施即代码、可观测性、监控告警、SLO、错误预算、
-  蓝绿发布、金丝雀、灰度、回滚、部署、线上事故、故障复盘"。
+  蓝绿发布、金丝雀、灰度、回滚、部署、SSH 部署、rsync、systemd、
+  服务器发布、线上事故、故障复盘"。
 agent_created: true
 metadata:
   version: 2.0.0
@@ -32,6 +33,7 @@ metadata:
 - 要用 Terraform 管基础设施，纠结 state、模块化、多环境隔离
 - 要建立可观测性体系：该埋什么指标、告警怎么设才不吵、SLO 与错误预算怎么算
 - 要选部署策略（滚动 / 蓝绿 / 金丝雀）、做带数据库变更的发布、准备回滚预案
+- 要把服务直接部署到一台 Linux 服务器（VM），用 rsync / systemd 做可回滚发布、不想引入容器编排
 - 线上出事了要按流程处置，或事后要做一次不流于形式的复盘
 
 ## 能力索引（超级技能路由）
@@ -50,6 +52,7 @@ metadata:
 | 可观测性：三支柱、四黄金信号、高基数陷阱、告警设计、SLO 与错误预算 | `references/observability.md` | `metrics` `traces` `黄金信号` `基数` `SLO` `燃烧率` |
 | 部署策略：滚动 / 蓝绿 / 金丝雀选型、Feature Flag、数据库扩展-收缩、回滚 | `references/deployment-strategies.md` | `蓝绿` `金丝雀` `灰度` `feature flag` `扩展收缩` `回滚` |
 | 事故响应：分级、角色分工、排查路径、沟通模板、无指责复盘 | `references/incident-response.md` | `SEV` `IC` `TTD` `TTM` `runbook` `5 Whys` `复盘` |
+| SSH 服务器部署：rsync 同步、版本目录+软链接、systemd 托管、健康检查与回滚 | `references/ssh-deploy.md` | `rsync` `软链接` `systemd` `回滚` `部署` |
 
 ### 细粒度子技能（`skills/`，可独立安装调用）
 
@@ -59,6 +62,7 @@ metadata:
 | Docker 容器化：Dockerfile 编写、compose 多服务、镜像优化、安全加固 | `skills/docker-deploy/SKILL.md` | `dockerfile` `compose` `镜像` `容器安全` |
 | Terraform 基础设施即代码：云资源创建、状态管理、模块化、CI 集成 | `skills/infra-as-code/SKILL.md` | `terraform` `provider` `tfstate` `module` |
 | Datadog 可观测性：日志搜索、APM 追踪、监控告警、LLM 可观测性 | `skills/monitor-logging/SKILL.md` | `datadog` `APM` `日志` `monitor` |
+| SSH 服务器部署：rsync 同步、systemd 托管、可回滚发布、健康检查 | `skills/ssh-deploy/SKILL.md` | `ssh` `rsync` `systemd` `部署` `回滚` |
 
 > **路由规则**：先判断诉求属于"要决策"还是"要落地"。
 > 需要判断该选哪条路、代价是什么、边界在哪 → 读 `references/`；
