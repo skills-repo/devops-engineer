@@ -63,6 +63,7 @@ metadata:
 | Terraform 基础设施即代码：云资源创建、状态管理、模块化、CI 集成 | `skills/infra-as-code/SKILL.md` | `terraform` `provider` `tfstate` `module` |
 | Datadog 可观测性：日志搜索、APM 追踪、监控告警、LLM 可观测性 | `skills/monitor-logging/SKILL.md` | `datadog` `APM` `日志` `monitor` |
 | SSH 服务器部署：rsync 同步、systemd 托管、可回滚发布、健康检查 | `skills/ssh-deploy/SKILL.md` | `ssh` `rsync` `systemd` `部署` `回滚` |
+| 脚本完整运行示例、参数与常见坑（按需加载） | `references/scripts-usage.md` | `dockerfile_lint` `ci_audit` `k8s_manifest_check` `slo_budget` `--strict` `--json` |
 
 > **路由规则**：先判断诉求属于"要决策"还是"要落地"。
 > 需要判断该选哪条路、代价是什么、边界在哪 → 读 `references/`；
@@ -88,6 +89,8 @@ python3 scripts/ci_audit.py .github/workflows --json
 python3 scripts/k8s_manifest_check.py k8s/ --strict
 python3 scripts/slo_budget.py --slo 99.9 --window 30 --total 12000000 --bad 9800 --elapsed-days 9
 ```
+
+> 完整运行示例、参数说明与常见坑见 `references/scripts-usage.md`。
 
 ## 模板资源
 
