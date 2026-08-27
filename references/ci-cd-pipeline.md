@@ -153,3 +153,17 @@ PR 打开/更新   → 阶段 0-3（快速反馈）
 | 团队习惯性绕过 CI | 反馈太慢或误报太多。先砍掉低价值阻断项，再提速 |
 | CI 通过但生产出问题 | 环境差异。检查是否 build once、配置是否外置 |
 | 密钥泄漏 | 立即轮换 → 查 CI 日志 → 检查 fork PR 配置 |
+
+---
+
+## 相关子技能与层次边界
+
+本 playbook 负责**决策与权衡**（门禁怎么分层、密钥怎么管、分支策略怎么定、提速杠杆怎么选）；
+具体 workflow 写法与命令请调对应子技能。
+
+- 落地到 `skills/ci-cd-pipeline/SKILL.md`：质量门禁流水线、GitHub Actions 配置、部署策略的具体写法与命令。
+- 兄弟参考：
+  - `references/deployment-strategies.md`：门禁放行后进入发布策略选型（滚动/蓝绿/金丝雀）。
+  - `references/incident-response.md`：流水线失败可升级为线上事故，按事故流程处置。
+  - `references/infrastructure-as-code.md`：把 `terraform plan/apply` 接进 CI 做 IaC 变更门禁。
+  - `references/scripts-usage.md`：`ci_audit.py` 对现有 GitHub Actions 做生产就绪度体检。

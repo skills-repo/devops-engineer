@@ -193,3 +193,18 @@ kubectl get events --sort-by=.lastTimestamp | tail -30
 
 避免的做法：把 `kubectl apply` 直接写在 CI 脚本里且没有版本化的清单——
 这样集群的真实状态无人知晓，也无法回滚。
+
+---
+
+## 相关子技能与层次边界
+
+本 playbook 负责**要不要上 K8s、上之后怎么生产就绪**（资源配额、三探针、发布回滚、排查路径）的决策；
+镜像本身来自容器化，声明式资源落地见子技能。
+
+- 落地到 `skills/docker-deploy/SKILL.md`：镜像与容器基础（多阶段构建、非 root、信号）。
+- 落地到 `skills/infra-as-code/SKILL.md`：Terraform 声明式资源（K8s 之外的基础设施，Helm/Kustomize 之外的模块）。
+- 兄弟参考：
+  - `references/containerization.md`：镜像从哪来、为什么要多阶段。
+  - `references/deployment-strategies.md`：K8s 滚动/蓝绿/金丝雀发布与回滚（含扩展-收缩）。
+  - `references/observability.md`：探针、监控与告警如何配合 SLO。
+  - `references/scripts-usage.md`：`k8s_manifest_check.py` 对 manifest 做体检（镜像 tag/配额/探针/安全上下文/PDB）。

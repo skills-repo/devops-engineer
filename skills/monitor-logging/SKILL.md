@@ -54,3 +54,9 @@ metadata:
 - 依赖 Datadog 平台（需要 API Key）
 - 不涉及开源替代（Prometheus/Grafana/ELK）
 - 不涉及日志的 GDPR/PII 合规处理
+
+## 相关参考（Playbook）
+
+指标体系/SLO/错误预算/告警设计的决策 → `references/observability.md`；
+告警驱动事故响应与无指责复盘 → `references/incident-response.md`；
+错误预算计算 → `references/scripts-usage.md`（`slo_budget.py`）。

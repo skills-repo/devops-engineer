@@ -191,3 +191,17 @@ SLO  = SLI 的目标，如 99.9%
 
 **第 7 步是最重要的**。可观测性不是一次建成的，是每次故障后补出来的。
 每个 incident 复盘都应该产出一条"下次要能更快看到 X"的改进项。
+
+---
+
+## 相关子技能与层次边界
+
+本 playbook 负责**可观测性的决策**（三支柱取舍、四黄金信号、告警设计、SLO 与错误预算）；
+具体平台落地（日志搜索/APM/告警）请调对应子技能。
+
+- 落地到 `skills/monitor-logging/SKILL.md`：Datadog 日志、APM 追踪、监控告警、LLM 可观测的具体写法与命令。
+- 兄弟参考：
+  - `references/incident-response.md`：告警驱动事故响应，SLO 影响是否升级。
+  - `references/kubernetes.md`：探针如何支撑 K8s 健康检查与告警。
+  - `references/deployment-strategies.md`：SLO/错误预算影响发布节奏与回滚决策。
+  - `references/scripts-usage.md`：`slo_budget.py` 计算错误预算与燃烧率告警阈值。

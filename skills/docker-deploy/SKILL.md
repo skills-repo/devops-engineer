@@ -54,3 +54,10 @@ metadata:
 - 不涉及 Kubernetes 编排
 - 不涉及容器网络深度配置
 - 不涉及容器注册表管理
+
+## 相关参考（Playbook）
+
+Dockerfile 多阶段/层缓存/安全加固的决策与踩坑 → `references/containerization.md`；
+何时上 K8s 与三探针 → `references/kubernetes.md`；
+发布策略与回滚 → `references/deployment-strategies.md`；
+镜像体检 → `references/scripts-usage.md`（`dockerfile_lint.py` / `k8s_manifest_check.py`）。

@@ -54,3 +54,8 @@ metadata:
 - 主要覆盖 GitHub Actions，其他 CI 平台类似
 - 不涉及 Kubernetes 部署策略（归属 infra-as-code）
 - 不涉及 monorepo 管理（lerna/nx/turborepo）
+
+## 相关参考（Playbook）
+
+需要判断门禁怎么分层、密钥怎么管、分支/触发策略怎么定 → 读 `references/ci-cd-pipeline.md`。
+门禁放行后的发布策略选型 → `references/deployment-strategies.md`；对现有 workflow 做体检 → `references/scripts-usage.md`（`ci_audit.py`）。

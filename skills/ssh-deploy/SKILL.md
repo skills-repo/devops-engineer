@@ -64,3 +64,10 @@ metadata:
 ## 深层 playbook
 
 完整决策树、命令范式、systemd 单元、踩坑清单见 `references/ssh-deploy.md`。
+
+## 相关参考（Playbook）
+
+完整决策树 / systemd 单元 / 踩坑清单见 `references/ssh-deploy.md`（"深层 playbook" 已指路）；
+发布策略与回滚预案 → `references/deployment-strategies.md`；
+与 CI 部署阶段对接 → `references/ci-cd-pipeline.md`；
+镜像与流水线体检 → `references/scripts-usage.md`。

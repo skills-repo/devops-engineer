@@ -131,3 +131,17 @@ WantedBy=multi-user.target
 本文是"部署动作"本身。把它接进 `ci-cd-pipeline.md` 的部署阶段即可：打 tag →
 跑测试 → 构建产物 → 触发上面的发布脚本（建议用带超时和自动回滚的部署 step，失败即自动回滚）。
 构建一次、用同一产物做发布（build once, deploy many），环境差异只来自 `shared/.env` 注入。
+
+---
+
+## 相关子技能与层次边界
+
+本 playbook 负责**SSH 服务器部署的决策与范式**（决策树、发布流程、systemd、回滚、踩坑）；
+rsync/systemd 的具体落地见子技能（其 SKILL.md 已指路本 playbook）。
+
+- 落地到 `skills/ssh-deploy/SKILL.md`：rsync 同步、版本目录+软链接、systemd 托管、健康检查与回滚的具体写法与命令。
+- 兄弟参考：
+  - `references/deployment-strategies.md`：发布策略选型与回滚预案（SSH 部署也要先答"怎么回滚"）。
+  - `references/ci-cd-pipeline.md`：把 SSH 发布接进 CI 的部署阶段。
+  - `references/kubernetes.md`：多实例/需自动扩缩容时改用 K8s，不再手写软链接。
+  - `references/scripts-usage.md`：SSH 部署前体检见 `dockerfile_lint.py`/`ci_audit.py`（镜像与流水线层面）。

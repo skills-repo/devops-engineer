@@ -189,3 +189,17 @@ volumes:
 | 镜像莫名很大 | `docker history <image>` 逐层看，通常是构建产物没走多阶段 |
 | 容器内改了文件，重启就没了 | 正常，容器文件系统是临时的。需要持久化就挂 volume |
 | 跨平台镜像跑不起来 | 用 `docker buildx build --platform linux/amd64,linux/arm64` 构建多架构 |
+
+---
+
+## 相关子技能与层次边界
+
+本 playbook 负责**镜像怎么写才生产就绪**（多阶段、层缓存、安全加固、瘦身、优雅退出）的决策与踩坑；
+具体 Dockerfile / compose 写法请调对应子技能。
+
+- 落地到 `skills/docker-deploy/SKILL.md`：Dockerfile 编写、compose 多服务编排、镜像优化、安全加固的具体写法与命令。
+- 兄弟参考：
+  - `references/kubernetes.md`：容器之上何时该上 K8s、三探针与资源配额怎么定。
+  - `references/deployment-strategies.md`：构建好的镜像如何发布（蓝绿/金丝雀/回滚）。
+  - `references/ci-cd-pipeline.md`：把镜像构建放进 CI，用缓存提速、用门禁挡劣质镜像。
+  - `references/scripts-usage.md`：`dockerfile_lint.py` 对现有 Dockerfile 做 12 类规则体检。
