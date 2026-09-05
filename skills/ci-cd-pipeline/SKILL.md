@@ -57,5 +57,5 @@ metadata:
 
 ## 相关参考（Playbook）
 
-需要判断门禁怎么分层、密钥怎么管、分支/触发策略怎么定 → 读 `references/ci-cd-pipeline.md`。
-门禁放行后的发布策略选型 → `references/deployment-strategies.md`；对现有 workflow 做体检 → `references/scripts-usage.md`（`ci_audit.py`）。
+需要判断门禁怎么分层、密钥怎么管、分支/触发策略怎么定 → 读 [`references/ci-cd-pipeline.md`](../../references/ci-cd-pipeline.md)。
+门禁放行后的发布策略选型 → [`references/deployment-strategies.md`](../../references/deployment-strategies.md)；对现有 workflow 做体检 → [`references/scripts-usage.md`](../../references/scripts-usage.md)（`ci_audit.py`）。

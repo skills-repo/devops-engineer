@@ -225,9 +225,9 @@ resource "aws_db_instance" "main" {
 本 playbook 负责**IaC 的决策与纪律**（state、模块化、多环境、危险操作、密钥处理）；
 Terraform 资源定义与 CI 集成的具体写法请调对应子技能。
 
-- 落地到 `skills/infra-as-code/SKILL.md`：资源声明、远程 state、模块复用、terraform plan/apply 流水线的具体写法与命令。
+- 落地到 [`skills/infra-as-code/SKILL.md`](../skills/infra-as-code/SKILL.md)：资源声明、远程 state、模块复用、terraform plan/apply 流水线的具体写法与命令。
 - 兄弟参考：
-  - `references/ci-cd-pipeline.md`：把 `terraform plan/apply` 接进 CI 做变更门禁。
-  - `references/deployment-strategies.md`：IaC 变更同样需要回滚预案与扩展-收缩思路。
-  - `references/incident-response.md`：IaC 误变更是常见事故源，需按事故流程处置。
-  - `references/scripts-usage.md`：IaC 相关体检见 `k8s_manifest_check.py` 与 `ci_audit.py`。
+  - [`references/ci-cd-pipeline.md`](ci-cd-pipeline.md)：把 `terraform plan/apply` 接进 CI 做变更门禁。
+  - [`references/deployment-strategies.md`](deployment-strategies.md)：IaC 变更同样需要回滚预案与扩展-收缩思路。
+  - [`references/incident-response.md`](incident-response.md)：IaC 误变更是常见事故源，需按事故流程处置。
+  - [`references/scripts-usage.md`](scripts-usage.md)：IaC 相关体检见 `k8s_manifest_check.py` 与 `ci_audit.py`。

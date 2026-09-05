@@ -57,6 +57,6 @@ metadata:
 
 ## 相关参考（Playbook）
 
-指标体系/SLO/错误预算/告警设计的决策 → `references/observability.md`；
-告警驱动事故响应与无指责复盘 → `references/incident-response.md`；
-错误预算计算 → `references/scripts-usage.md`（`slo_budget.py`）。
+指标体系/SLO/错误预算/告警设计的决策 → [`references/observability.md`](../../references/observability.md)；
+告警驱动事故响应与无指责复盘 → [`references/incident-response.md`](../../references/incident-response.md)；
+错误预算计算 → [`references/scripts-usage.md`](../../references/scripts-usage.md)（`slo_budget.py`）。

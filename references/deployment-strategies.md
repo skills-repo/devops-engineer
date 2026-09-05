@@ -189,11 +189,11 @@ kubectl rollout undo deploy/api           # K8s
 本 playbook 负责**发布策略选型与回滚**（滚动/蓝绿/金丝雀/Feature Flag/数据库扩展-收缩）的决策；
 容器发布与服务器发布的具体落地分别见子技能。
 
-- 落地到 `skills/docker-deploy/SKILL.md`：容器镜像的零停机部署与回滚。
-- 落地到 `skills/ssh-deploy/SKILL.md`：单台/少量 VM 的"版本目录+软链接"可回滚发布。
+- 落地到 [`skills/docker-deploy/SKILL.md`](../skills/docker-deploy/SKILL.md)：容器镜像的零停机部署与回滚。
+- 落地到 [`skills/ssh-deploy/SKILL.md`](../skills/ssh-deploy/SKILL.md)：单台/少量 VM 的"版本目录+软链接"可回滚发布。
 - 兄弟参考：
-  - `references/ci-cd-pipeline.md`：门禁放行后才进入发布阶段。
-  - `references/incident-response.md`：回滚=止血，回滚演练与事故流程衔接。
-  - `references/kubernetes.md`：K8s 滚动/蓝绿/金丝雀的发布与回滚命令。
-  - `references/ssh-deploy.md`：服务器发布的回滚预案与发布检查清单。
-  - `references/scripts-usage.md`：发布前体检见各 lint/audit 脚本。
+  - [`references/ci-cd-pipeline.md`](ci-cd-pipeline.md)：门禁放行后才进入发布阶段。
+  - [`references/incident-response.md`](incident-response.md)：回滚=止血，回滚演练与事故流程衔接。
+  - [`references/kubernetes.md`](kubernetes.md)：K8s 滚动/蓝绿/金丝雀的发布与回滚命令。
+  - [`references/ssh-deploy.md`](ssh-deploy.md)：服务器发布的回滚预案与发布检查清单。
+  - [`references/scripts-usage.md`](scripts-usage.md)：发布前体检见各 lint/audit 脚本。

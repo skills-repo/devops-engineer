@@ -197,9 +197,9 @@ volumes:
 本 playbook 负责**镜像怎么写才生产就绪**（多阶段、层缓存、安全加固、瘦身、优雅退出）的决策与踩坑；
 具体 Dockerfile / compose 写法请调对应子技能。
 
-- 落地到 `skills/docker-deploy/SKILL.md`：Dockerfile 编写、compose 多服务编排、镜像优化、安全加固的具体写法与命令。
+- 落地到 [`skills/docker-deploy/SKILL.md`](../skills/docker-deploy/SKILL.md)：Dockerfile 编写、compose 多服务编排、镜像优化、安全加固的具体写法与命令。
 - 兄弟参考：
-  - `references/kubernetes.md`：容器之上何时该上 K8s、三探针与资源配额怎么定。
-  - `references/deployment-strategies.md`：构建好的镜像如何发布（蓝绿/金丝雀/回滚）。
-  - `references/ci-cd-pipeline.md`：把镜像构建放进 CI，用缓存提速、用门禁挡劣质镜像。
-  - `references/scripts-usage.md`：`dockerfile_lint.py` 对现有 Dockerfile 做 12 类规则体检。
+  - [`references/kubernetes.md`](kubernetes.md)：容器之上何时该上 K8s、三探针与资源配额怎么定。
+  - [`references/deployment-strategies.md`](deployment-strategies.md)：构建好的镜像如何发布（蓝绿/金丝雀/回滚）。
+  - [`references/ci-cd-pipeline.md`](ci-cd-pipeline.md)：把镜像构建放进 CI，用缓存提速、用门禁挡劣质镜像。
+  - [`references/scripts-usage.md`](scripts-usage.md)：`dockerfile_lint.py` 对现有 Dockerfile 做 12 类规则体检。

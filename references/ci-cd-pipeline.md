@@ -161,9 +161,9 @@ PR 打开/更新   → 阶段 0-3（快速反馈）
 本 playbook 负责**决策与权衡**（门禁怎么分层、密钥怎么管、分支策略怎么定、提速杠杆怎么选）；
 具体 workflow 写法与命令请调对应子技能。
 
-- 落地到 `skills/ci-cd-pipeline/SKILL.md`：质量门禁流水线、GitHub Actions 配置、部署策略的具体写法与命令。
+- 落地到 [`skills/ci-cd-pipeline/SKILL.md`](../skills/ci-cd-pipeline/SKILL.md)：质量门禁流水线、GitHub Actions 配置、部署策略的具体写法与命令。
 - 兄弟参考：
-  - `references/deployment-strategies.md`：门禁放行后进入发布策略选型（滚动/蓝绿/金丝雀）。
-  - `references/incident-response.md`：流水线失败可升级为线上事故，按事故流程处置。
-  - `references/infrastructure-as-code.md`：把 `terraform plan/apply` 接进 CI 做 IaC 变更门禁。
-  - `references/scripts-usage.md`：`ci_audit.py` 对现有 GitHub Actions 做生产就绪度体检。
+  - [`references/deployment-strategies.md`](deployment-strategies.md)：门禁放行后进入发布策略选型（滚动/蓝绿/金丝雀）。
+  - [`references/incident-response.md`](incident-response.md)：流水线失败可升级为线上事故，按事故流程处置。
+  - [`references/infrastructure-as-code.md`](infrastructure-as-code.md)：把 `terraform plan/apply` 接进 CI 做 IaC 变更门禁。
+  - [`references/scripts-usage.md`](scripts-usage.md)：`ci_audit.py` 对现有 GitHub Actions 做生产就绪度体检。

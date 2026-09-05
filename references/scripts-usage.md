@@ -66,7 +66,7 @@ python3 scripts/slo_budget.py --slo 99.9 --window 30 \
 本手册是**四个内置脚本的运行入口**；脚本只做客观体检（零依赖、不联网、不改动被检文件），
 判断该往哪条路走仍回到对应 playbook 与子技能。
 
-- `dockerfile_lint.py` → 落地 `skills/docker-deploy/SKILL.md`；决策背景 `references/containerization.md`。
-- `ci_audit.py` → 落地 `skills/ci-cd-pipeline/SKILL.md`；决策背景 `references/ci-cd-pipeline.md`。
-- `k8s_manifest_check.py` → 落地 `skills/docker-deploy/SKILL.md`（容器基础）；决策背景 `references/kubernetes.md`。
-- `slo_budget.py` → 落地 `skills/monitor-logging/SKILL.md`；决策背景 `references/observability.md`。
+- `dockerfile_lint.py` → 落地 [`skills/docker-deploy/SKILL.md`](../skills/docker-deploy/SKILL.md)；决策背景 [`references/containerization.md`](containerization.md)。
+- `ci_audit.py` → 落地 [`skills/ci-cd-pipeline/SKILL.md`](../skills/ci-cd-pipeline/SKILL.md)；决策背景 [`references/ci-cd-pipeline.md`](ci-cd-pipeline.md)。
+- `k8s_manifest_check.py` → 落地 [`skills/docker-deploy/SKILL.md`](../skills/docker-deploy/SKILL.md)（容器基础）；决策背景 [`references/kubernetes.md`](kubernetes.md)。
+- `slo_budget.py` → 落地 [`skills/monitor-logging/SKILL.md`](../skills/monitor-logging/SKILL.md)；决策背景 [`references/observability.md`](observability.md)。

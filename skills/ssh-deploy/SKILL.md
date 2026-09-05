@@ -57,17 +57,17 @@ metadata:
 
 - 多实例、需自动扩缩容 → 走 `kubernetes.md`
 - PaaS 平台（Vercel/Fly 等）→ 用平台 CLI
-- 发布**策略**（蓝绿/金丝雀/扩展-收缩）→ 见 `references/deployment-strategies.md`
-- 容器化构建与镜像优化 → 见 `skills/docker-deploy/` 与 `references/containerization.md`
+- 发布**策略**（蓝绿/金丝雀/扩展-收缩）→ 见 [`references/deployment-strategies.md`](../../references/deployment-strategies.md)
+- 容器化构建与镜像优化 → 见 [`skills/docker-deploy/`](../docker-deploy/SKILL.md) 与 [`references/containerization.md`](../../references/containerization.md)
 - 删除生产资源、改生产密钥 → 只给命令与风险，不代为执行
 
 ## 深层 playbook
 
-完整决策树、命令范式、systemd 单元、踩坑清单见 `references/ssh-deploy.md`。
+完整决策树、命令范式、systemd 单元、踩坑清单见 [`references/ssh-deploy.md`](../../references/ssh-deploy.md)。
 
 ## 相关参考（Playbook）
 
-完整决策树 / systemd 单元 / 踩坑清单见 `references/ssh-deploy.md`（"深层 playbook" 已指路）；
-发布策略与回滚预案 → `references/deployment-strategies.md`；
-与 CI 部署阶段对接 → `references/ci-cd-pipeline.md`；
-镜像与流水线体检 → `references/scripts-usage.md`。
+完整决策树 / systemd 单元 / 踩坑清单见 [`references/ssh-deploy.md`](../../references/ssh-deploy.md)（"深层 playbook" 已指路）；
+发布策略与回滚预案 → [`references/deployment-strategies.md`](../../references/deployment-strategies.md)；
+与 CI 部署阶段对接 → [`references/ci-cd-pipeline.md`](../../references/ci-cd-pipeline.md)；
+镜像与流水线体检 → [`references/scripts-usage.md`](../../references/scripts-usage.md)。

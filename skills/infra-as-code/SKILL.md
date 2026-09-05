@@ -57,7 +57,7 @@ metadata:
 
 ## 相关参考（Playbook）
 
-state 管理/模块化/多环境/危险操作的决策树 → `references/infrastructure-as-code.md`；
-把 `terraform plan/apply` 接进 CI → `references/ci-cd-pipeline.md`；
-IaC 变更也需回滚预案 → `references/deployment-strategies.md`；
-体检脚本 → `references/scripts-usage.md`。
+state 管理/模块化/多环境/危险操作的决策树 → [`references/infrastructure-as-code.md`](../../references/infrastructure-as-code.md)；
+把 `terraform plan/apply` 接进 CI → [`references/ci-cd-pipeline.md`](../../references/ci-cd-pipeline.md)；
+IaC 变更也需回滚预案 → [`references/deployment-strategies.md`](../../references/deployment-strategies.md)；
+体检脚本 → [`references/scripts-usage.md`](../../references/scripts-usage.md)。

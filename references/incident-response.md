@@ -185,9 +185,9 @@ CI 里没有这项检查        ← 真正的改进点
 本 playbook 负责**事故处置流程**（分级、角色、排查路径、沟通、无指责复盘）；
 检测/告警来源来自可观测性，回滚预案来自发布策略。
 
-- 落地到 `skills/monitor-logging/SKILL.md`：用 Datadog 日志/APM/告警做故障检测与根因定位。
+- 落地到 [`skills/monitor-logging/SKILL.md`](../skills/monitor-logging/SKILL.md)：用 Datadog 日志/APM/告警做故障检测与根因定位。
 - 兄弟参考：
-  - `references/observability.md`：告警怎么设计才不会漏报/误报，SLO 与错误预算。
-  - `references/deployment-strategies.md`：回滚预案（回滚优先于修复）与发布检查清单。
-  - `references/ci-cd-pipeline.md`：流水线失败是常见事故源，门禁失效会放大故障。
+  - [`references/observability.md`](observability.md)：告警怎么设计才不会漏报/误报，SLO 与错误预算。
+  - [`references/deployment-strategies.md`](deployment-strategies.md)：回滚预案（回滚优先于修复）与发布检查清单。
+  - [`references/ci-cd-pipeline.md`](ci-cd-pipeline.md)：流水线失败是常见事故源，门禁失效会放大故障。
   - `assets/postmortem-template.md`：无指责复盘模板（TTD/TTA/TTM 拆解、防线检查、行动项）。
