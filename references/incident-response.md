@@ -190,4 +190,4 @@ CI 里没有这项检查        ← 真正的改进点
   - [`references/observability.md`](observability.md)：告警怎么设计才不会漏报/误报，SLO 与错误预算。
   - [`references/deployment-strategies.md`](deployment-strategies.md)：回滚预案（回滚优先于修复）与发布检查清单。
   - [`references/ci-cd-pipeline.md`](ci-cd-pipeline.md)：流水线失败是常见事故源，门禁失效会放大故障。
-  - `assets/postmortem-template.md`：无指责复盘模板（TTD/TTA/TTM 拆解、防线检查、行动项）。
+  - [assets/postmortem-template.md](../assets/postmortem-template.md)：无指责复盘模板（TTD/TTA/TTM 拆解、防线检查、行动项）。

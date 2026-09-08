@@ -45,25 +45,25 @@ metadata:
 
 | 任务 | 读取 | 关键词（grep 线索） |
 |------|------|---------------------|
-| CI/CD 流水线设计：分层门禁、fail-fast、提速、密钥与权限、分支策略 | `references/ci-cd-pipeline.md` | `门禁` `fail-fast` `缓存` `矩阵` `OIDC` `build once` |
-| 容器化：多阶段构建、层缓存、镜像瘦身、安全加固、信号处理 | `references/containerization.md` | `多阶段` `层缓存` `BuildKit` `非root` `HEALTHCHECK` `SIGTERM` |
-| Kubernetes：何时该上、资源配额、三探针、发布回滚、排查路径 | `references/kubernetes.md` | `requests` `limits` `探针` `probe` `HPA` `CrashLoopBackOff` |
-| 基础设施即代码：state 管理、模块化、多环境隔离、CI 集成、危险操作 | `references/infrastructure-as-code.md` | `state` `锁` `模块` `workspace` `prevent_destroy` `漂移` |
-| 可观测性：三支柱、四黄金信号、高基数陷阱、告警设计、SLO 与错误预算 | `references/observability.md` | `metrics` `traces` `黄金信号` `基数` `SLO` `燃烧率` |
-| 部署策略：滚动 / 蓝绿 / 金丝雀选型、Feature Flag、数据库扩展-收缩、回滚 | `references/deployment-strategies.md` | `蓝绿` `金丝雀` `灰度` `feature flag` `扩展收缩` `回滚` |
-| 事故响应：分级、角色分工、排查路径、沟通模板、无指责复盘 | `references/incident-response.md` | `SEV` `IC` `TTD` `TTM` `runbook` `5 Whys` `复盘` |
-| SSH 服务器部署：rsync 同步、版本目录+软链接、systemd 托管、健康检查与回滚 | `references/ssh-deploy.md` | `rsync` `软链接` `systemd` `回滚` `部署` |
+| CI/CD 流水线设计：分层门禁、fail-fast、提速、密钥与权限、分支策略 | [references/ci-cd-pipeline.md](references/ci-cd-pipeline.md) | `门禁` `fail-fast` `缓存` `矩阵` `OIDC` `build once` |
+| 容器化：多阶段构建、层缓存、镜像瘦身、安全加固、信号处理 | [references/containerization.md](references/containerization.md) | `多阶段` `层缓存` `BuildKit` `非root` `HEALTHCHECK` `SIGTERM` |
+| Kubernetes：何时该上、资源配额、三探针、发布回滚、排查路径 | [references/kubernetes.md](references/kubernetes.md) | `requests` `limits` `探针` `probe` `HPA` `CrashLoopBackOff` |
+| 基础设施即代码：state 管理、模块化、多环境隔离、CI 集成、危险操作 | [references/infrastructure-as-code.md](references/infrastructure-as-code.md) | `state` `锁` `模块` `workspace` `prevent_destroy` `漂移` |
+| 可观测性：三支柱、四黄金信号、高基数陷阱、告警设计、SLO 与错误预算 | [references/observability.md](references/observability.md) | `metrics` `traces` `黄金信号` `基数` `SLO` `燃烧率` |
+| 部署策略：滚动 / 蓝绿 / 金丝雀选型、Feature Flag、数据库扩展-收缩、回滚 | [references/deployment-strategies.md](references/deployment-strategies.md) | `蓝绿` `金丝雀` `灰度` `feature flag` `扩展收缩` `回滚` |
+| 事故响应：分级、角色分工、排查路径、沟通模板、无指责复盘 | [references/incident-response.md](references/incident-response.md) | `SEV` `IC` `TTD` `TTM` `runbook` `5 Whys` `复盘` |
+| SSH 服务器部署：rsync 同步、版本目录+软链接、systemd 托管、健康检查与回滚 | [references/ssh-deploy.md](references/ssh-deploy.md) | `rsync` `软链接` `systemd` `回滚` `部署` |
 
 ### 细粒度子技能（`skills/`，可独立安装调用）
 
 | 任务 | 调用 | 关键词（grep 线索） |
 |------|------|---------------------|
-| CI/CD 流水线自动化：质量门禁、测试集成、部署策略、GitHub Actions | `skills/ci-cd-pipeline/SKILL.md` | `workflow` `actions` `pipeline` `门禁` |
-| Docker 容器化：Dockerfile 编写、compose 多服务、镜像优化、安全加固 | `skills/docker-deploy/SKILL.md` | `dockerfile` `compose` `镜像` `容器安全` |
-| Terraform 基础设施即代码：云资源创建、状态管理、模块化、CI 集成 | `skills/infra-as-code/SKILL.md` | `terraform` `provider` `tfstate` `module` |
-| Datadog 可观测性：日志搜索、APM 追踪、监控告警、LLM 可观测性 | `skills/monitor-logging/SKILL.md` | `datadog` `APM` `日志` `monitor` |
-| SSH 服务器部署：rsync 同步、systemd 托管、可回滚发布、健康检查 | `skills/ssh-deploy/SKILL.md` | `ssh` `rsync` `systemd` `部署` `回滚` |
-| 脚本完整运行示例、参数与常见坑（按需加载） | `references/scripts-usage.md` | `dockerfile_lint` `ci_audit` `k8s_manifest_check` `slo_budget` `--strict` `--json` |
+| CI/CD 流水线自动化：质量门禁、测试集成、部署策略、GitHub Actions | [skills/ci-cd-pipeline/SKILL.md](skills/ci-cd-pipeline/SKILL.md) | `workflow` `actions` `pipeline` `门禁` |
+| Docker 容器化：Dockerfile 编写、compose 多服务、镜像优化、安全加固 | [skills/docker-deploy/SKILL.md](skills/docker-deploy/SKILL.md) | `dockerfile` `compose` `镜像` `容器安全` |
+| Terraform 基础设施即代码：云资源创建、状态管理、模块化、CI 集成 | [skills/infra-as-code/SKILL.md](skills/infra-as-code/SKILL.md) | `terraform` `provider` `tfstate` `module` |
+| Datadog 可观测性：日志搜索、APM 追踪、监控告警、LLM 可观测性 | [skills/monitor-logging/SKILL.md](skills/monitor-logging/SKILL.md) | `datadog` `APM` `日志` `monitor` |
+| SSH 服务器部署：rsync 同步、systemd 托管、可回滚发布、健康检查 | [skills/ssh-deploy/SKILL.md](skills/ssh-deploy/SKILL.md) | `ssh` `rsync` `systemd` `部署` `回滚` |
+| 脚本完整运行示例、参数与常见坑（按需加载） | [references/scripts-usage.md](references/scripts-usage.md) | `dockerfile_lint` `ci_audit` `k8s_manifest_check` `slo_budget` `--strict` `--json` |
 
 > **路由规则**：先判断诉求属于"要决策"还是"要落地"。
 > 需要判断该选哪条路、代价是什么、边界在哪 → 读 `references/`；
@@ -90,7 +90,7 @@ python3 scripts/k8s_manifest_check.py k8s/ --strict
 python3 scripts/slo_budget.py --slo 99.9 --window 30 --total 12000000 --bad 9800 --elapsed-days 9
 ```
 
-> 完整运行示例、参数说明与常见坑见 `references/scripts-usage.md`。
+> 完整运行示例、参数说明与常见坑见 [references/scripts-usage.md](references/scripts-usage.md)。
 
 ## 模板资源
 
@@ -98,12 +98,12 @@ python3 scripts/slo_budget.py --slo 99.9 --window 30 --total 12000000 --bad 9800
 
 | 模板 | 用途 |
 |------|------|
-| `assets/github-actions-ci.yml` | 四层门禁的生产级 CI：最小权限、concurrency、依赖缓存、OIDC 部署、防注入写法 |
-| `assets/Dockerfile.node.multistage` | 三阶段 Node 镜像：BuildKit secret、非 root、tini 信号处理、HEALTHCHECK |
-| `assets/.dockerignore` | 配套的构建上下文裁剪清单 |
-| `assets/k8s-deployment.yaml` | Deployment + Service + PDB + HPA 全套：三探针分工、拓扑打散、preStop 排空 |
-| `assets/terraform-baseline.tf` | Terraform 基线：版本锁定、远程 state 加锁、默认打标、删除保护、目录约定 |
-| `assets/postmortem-template.md` | 无指责复盘模板：TTD/TTA/TTM 拆解、防线逐层检查、按类型划分行动项 |
+| [assets/github-actions-ci.yml](assets/github-actions-ci.yml) | 四层门禁的生产级 CI：最小权限、concurrency、依赖缓存、OIDC 部署、防注入写法 |
+| [assets/Dockerfile.node.multistage](assets/Dockerfile.node.multistage) | 三阶段 Node 镜像：BuildKit secret、非 root、tini 信号处理、HEALTHCHECK |
+| [assets/.dockerignore](assets/.dockerignore) | 配套的构建上下文裁剪清单 |
+| [assets/k8s-deployment.yaml](assets/k8s-deployment.yaml) | Deployment + Service + PDB + HPA 全套：三探针分工、拓扑打散、preStop 排空 |
+| [assets/terraform-baseline.tf](assets/terraform-baseline.tf) | Terraform 基线：版本锁定、远程 state 加锁、默认打标、删除保护、目录约定 |
+| [assets/postmortem-template.md](assets/postmortem-template.md) | 无指责复盘模板：TTD/TTA/TTM 拆解、防线逐层检查、按类型划分行动项 |
 
 ## 核心原则（始终遵循）
 

@@ -2,7 +2,7 @@
 
 > 无指责（blameless）复盘。目标是修复系统，不是追究个人。
 > 任何"某某不该点那个按钮"的结论，都要改写成"系统为什么允许一次点击造成这个后果"。
-> 对应 playbook: `references/incident-response.md`
+> 对应 playbook: [references/incident-response.md](../references/incident-response.md)
 
 ## 一、基本信息
 

@@ -57,10 +57,10 @@
 
 | 技能 | 文件 | 用途 |
 |------|------|------|
-| ci-cd-pipeline | `skills/ci-cd-pipeline/SKILL.md` | GitHub Actions 流水线自动化与质量门禁 |
-| docker-deploy | `skills/docker-deploy/SKILL.md` | Dockerfile、compose、镜像优化与安全加固 |
-| infra-as-code | `skills/infra-as-code/SKILL.md` | Terraform 云资源、状态管理、模块化 |
-| monitor-logging | `skills/monitor-logging/SKILL.md` | Datadog 日志、APM、监控告警 |
+| ci-cd-pipeline | [skills/ci-cd-pipeline/SKILL.md](skills/ci-cd-pipeline/SKILL.md) | GitHub Actions 流水线自动化与质量门禁 |
+| docker-deploy | [skills/docker-deploy/SKILL.md](skills/docker-deploy/SKILL.md) | Dockerfile、compose、镜像优化与安全加固 |
+| infra-as-code | [skills/infra-as-code/SKILL.md](skills/infra-as-code/SKILL.md) | Terraform 云资源、状态管理、模块化 |
+| monitor-logging | [skills/monitor-logging/SKILL.md](skills/monitor-logging/SKILL.md) | Datadog 日志、APM、监控告警 |
 
 ## 行为准则
 
