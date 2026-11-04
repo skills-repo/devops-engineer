@@ -1,9 +1,6 @@
 ---
 name: ssh-deploy
-description: >-
-  SSH 服务器部署：把构建产物通过 rsync/scp 送到 Linux 服务器、用 systemd 管理服务进程、
-  采用"版本目录 + 软链接"实现可回滚发布、含健康检查与零停机/快速重启策略。
-  适用于单台/少量 VM、没有 K8s 的小团队服务、定时脚本与内部工具。
+description: SSH 部署：rsync/scp 送产物、systemd 管进程、版本目录+软链接可回滚、含健康检查与零停机重启。适用单台/少量 VM、无 K8s 小团队。
 source:
   type: derived
   repo: skills-repo/devops-engineer
