@@ -32,7 +32,8 @@ devops-engineer/
 │   ├── observability.md             三支柱 / 四黄金信号 / 高基数陷阱 / SLO 与燃烧率
 │   ├── deployment-strategies.md     滚动·蓝绿·金丝雀选型 / 扩展-收缩 / 回滚
 │   ├── ssh-deploy.md                rsync 同步 / 版本目录+软链接 / systemd 托管 / 回滚
-│   └── incident-response.md         分级与角色 / 排查路径 / 沟通模板 / 无指责复盘
+│   ├── incident-response.md         分级与角色 / 排查路径 / 沟通模板 / 无指责复盘
+│   └── scripts-usage.md             四个脚本的完整运行示例 / 参数说明 / 常见坑
 ├── skills/                   # L3 细粒度子技能，可单独安装
 │   ├── ci-cd-pipeline/
 │   ├── docker-deploy/
